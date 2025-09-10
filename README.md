@@ -33,7 +33,3 @@ Output: the translated version of the input file (Excel‑friendly: UTF‑8 BOM 
 - Because translations often contain commas, outputs are saved with all fields quoted and UTF‑8 BOM so Excel imports the full text into single cells.
 - If opening in Excel via Data → From Text/CSV, confirm delimiter is comma and encoding is UTF‑8.
 
-### Troubleshooting
-- "SettingWithCopyWarning": ensure slices are copied (use `.copy()`) before assigning new columns.
-- Auth errors: verify `GOOGLE_APPLICATION_CREDENTIALS` and that the Translation API is enabled.
-- Rate limits: the scripts include small `time.sleep` delays; increase if you see quota errors.
