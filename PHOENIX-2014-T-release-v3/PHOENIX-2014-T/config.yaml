@@ -1,0 +1,36 @@
+# Data paths
+data:
+  root: ./data
+  train_annotations: D:/Thesis/Annotations_eng/PHOENIX-2014-T.train.corpus_eng.csv
+  dev_annotations: D:/Thesis/Annotations_eng/PHOENIX-2014-T.dev.corpus.csv
+  test_annotations: D:/Thesis/Annotations_eng/PHOENIX-2014-T.test.corpus_eng.csv
+  train_features: D:/phoenix-2014-T.v3/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/train
+  dev_features: D:/phoenix-2014-T.v3/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/dev
+  test_features: D:/phoenix-2014-T.v3/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/test
+
+# Model architecture
+model:
+  input_dim: 1024
+  hidden_dim: 512
+  num_layers: 3
+  num_heads: 8
+  dropout: 0.1
+
+# Training hyperparameters
+training:
+  batch_size: 128  # inrease for memory constraints to 128 -> 64 -> 32 -> 16 -> 8 -> 4 
+  learning_rate: 0.001
+  num_epochs: 100
+  lambda_recognition: 5.0
+  lambda_translation: 1.0
+  gradient_clip: 1.0
+  weight_decay: 0.001
+  device: cuda  # or 'mps' for Mac, 'cpu' for CPU-only
+  num_workers: 0
+  scheduler_factor: 0.7
+  scheduler_patience: 8
+
+# Evaluation
+evaluation:
+  beam_width: 4
+  length_penalty: 0.6
