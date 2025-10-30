@@ -1,12 +1,12 @@
 # Data paths
 data:
   root: ./data
-  train_annotations: D:/Thesis/Annotations_eng/PHOENIX-2014-T.train.corpus_eng.csv
-  dev_annotations: D:/Thesis/Annotations_eng/PHOENIX-2014-T.dev.corpus.csv
-  test_annotations: D:/Thesis/Annotations_eng/PHOENIX-2014-T.test.corpus_eng.csv
-  train_features: D:/phoenix-2014-T.v3/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/train
-  dev_features: D:/phoenix-2014-T.v3/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/dev
-  test_features: D:/phoenix-2014-T.v3/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/test
+  train_annotations: /Users/imaneboumedra/Library/Mobile Documents/com~apple~CloudDocs/SLT_project/SLT-sign_language_translation/Annotations_eng/PHOENIX-2014-T.train.corpus_eng.csv
+  dev_annotations: /Users/imaneboumedra/Library/Mobile Documents/com~apple~CloudDocs/SLT_project/SLT-sign_language_translation/Annotations_eng/PHOENIX-2014-T.dev.corpus.csv
+  test_annotations: /Users/imaneboumedra/Library/Mobile Documents/com~apple~CloudDocs/SLT_project/SLT-sign_language_translation/Annotations_eng/PHOENIX-2014-T.test.corpus_english.csv
+  train_features: /Users/imaneboumedra/Library/Mobile Documents/com~apple~CloudDocs/SLT_project/SLT-sign_language_translation/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/train
+  dev_features: /Users/imaneboumedra/Library/Mobile Documents/com~apple~CloudDocs/SLT_project/SLT-sign_language_translation/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/dev
+  test_features: /Users/imaneboumedra/Library/Mobile Documents/com~apple~CloudDocs/SLT_project/SLT-sign_language_translation/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px/test
 
 # Model architecture
 model:
@@ -19,13 +19,13 @@ model:
 # Training hyperparameters
 training:
   batch_size: 128  # inrease for memory constraints to 128 -> 64 -> 32 -> 16 -> 8 -> 4 
-  learning_rate: 0.001
-  num_epochs: 100
+  learning_rate: 0.0005
+  num_epochs: 50
   lambda_recognition: 5.0
   lambda_translation: 1.0
   gradient_clip: 1.0
   weight_decay: 0.001
-  device: cuda  # or 'mps' for Mac, 'cpu' for CPU-only
+  device: mps  # or 'mps' for Mac, 'cpu' for CPU-only
   num_workers: 0
   scheduler_factor: 0.7
   scheduler_patience: 8

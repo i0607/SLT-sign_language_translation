@@ -79,7 +79,6 @@ class Trainer:
             mode='min',
             factor=config['training'].get('scheduler_factor', 0.7),
             patience=config['training'].get('scheduler_patience', 8),
-            verbose=True,
             min_lr=1e-6
         )
         
@@ -95,8 +94,10 @@ class Trainer:
         os.makedirs(os.path.join(self.experiment_dir, 'checkpoints'), exist_ok=True)
         
         # Initialize logger
-        self.logger = TrainingLogger(os.path.join(self.experiment_dir, 'logs'))
-        
+        self.logger = TrainingLogger(
+            os.path.join(self.experiment_dir, 'logs'),
+            config=config  # Pass the configuration dictionary
+        )        
         # Save config
         with open(os.path.join(self.experiment_dir, 'config.json'), 'w') as f:
             json.dump(config, f, indent=2)
